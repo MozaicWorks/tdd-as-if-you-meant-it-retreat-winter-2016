@@ -9,7 +9,7 @@ class BankAccountSpec extends Specification {
 		def theExpectedBalanceValue = 1000
 
 		when:
-		def doTheDeposit = initialBalance + theDepositValue
+		def doTheDeposit = doTheDeposit(initialBalance, theDepositValue)
 		def theActualBalanceValue = doTheDeposit
 
 		then:
@@ -23,7 +23,7 @@ class BankAccountSpec extends Specification {
 		def theExpectedBalanceValue = 1000
 
 		when:
-		def doTheDeposit = initialBalance + theDepositValue
+		def doTheDeposit = doTheDeposit(initialBalance, theDepositValue)
 		def theActualBalanceValue = doTheDeposit
 
 		then:
@@ -37,10 +37,14 @@ class BankAccountSpec extends Specification {
 		def theExpectedBalanceValue = 1000
 
 		when:
-		def doTheDeposit = initialBalance + theDepositValue
+		def doTheDeposit = doTheDeposit(initialBalance, theDepositValue)
 		def theActualBalanceValue = doTheDeposit
 
 		then:
 		theExpectedBalanceValue == theActualBalanceValue
+	}
+
+	private doTheDeposit(int initialBalance, int theDepositValue) {
+		return initialBalance + theDepositValue
 	}
 }
