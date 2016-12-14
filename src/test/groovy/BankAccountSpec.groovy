@@ -22,6 +22,17 @@ class BankAccountSpec extends Specification {
 		10.0           | 10.0            | 20.0
 	}
 
+	def "100.0 euros balance becomes 1000.0 euros after a deposit of 900.0 euros"() {
+		given:
+		def theExpectedBalanceValueInEuros = "1000.0 euros"
+
+		when:
+		def theActualBalanceValue = (100.0 + 900.0).toString() + " euros"
+
+		then:
+		theExpectedBalanceValueInEuros == theActualBalanceValue
+	}
+
 	private doTheDeposit(initialBalance, theDepositValue) {
 		return initialBalance + theDepositValue
 	}
