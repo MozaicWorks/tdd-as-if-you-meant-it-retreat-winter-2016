@@ -29,4 +29,18 @@ class BankAccountSpec extends Specification {
 		then:
 		theExpectedBalanceValue == theActualBalanceValue
 	}
+
+	def "-100 balance becomes 1000 after a deposit of 1100"(){
+		given:
+		def initialBalance = -100
+		def theDepositValue = 1100
+		def theExpectedBalanceValue = 1000
+
+		when:
+		def doTheDeposit = initialBalance + theDepositValue
+		def theActualBalanceValue = doTheDeposit
+
+		then:
+		theExpectedBalanceValue == theActualBalanceValue
+	}
 }
