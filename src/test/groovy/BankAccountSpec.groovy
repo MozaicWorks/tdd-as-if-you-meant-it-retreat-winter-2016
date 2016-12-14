@@ -26,17 +26,17 @@ class BankAccountSpec extends Specification {
 		given:
 		def currency = " euros"
 		def theExpectedBalanceValue = 1000.0
-		def theExpectedBalanceValueInEuros = theExpectedBalanceValue.toString() + currency
+		def theExpectedFormattedBalanceValueInEuros = theExpectedBalanceValue.toString() + currency
 		def theInitialBalance = 100.0
 		def theDepositValue = 900.0
 		def doTheDeposit = theInitialBalance + theDepositValue
 		def theActualBalanceValue = doTheDeposit
 
 		when:
-		def theActualBalanceValueInEuros = theActualBalanceValue.toString() + currency
+		def theActualFormattedBalanceValueInEuros = theActualBalanceValue.toString() + currency
 
 		then:
-		theExpectedBalanceValueInEuros == theActualBalanceValueInEuros
+		theExpectedFormattedBalanceValueInEuros == theActualFormattedBalanceValueInEuros
 	}
 
 	private doTheDeposit(initialBalance, theDepositValue) {
