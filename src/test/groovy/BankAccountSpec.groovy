@@ -1,8 +1,11 @@
 import spock.lang.Specification
+import spock.lang.Unroll
 
 
 class BankAccountSpec extends Specification {
-	def "0 balance becomes 1000 after a deposit of 1000"() {
+
+	@Unroll
+	def "#initialBalance balance becomes #theExpectedBalanceValue after a deposit of #theDepositValue"() {
 		when:
 		def doTheDeposit = doTheDeposit(initialBalance, theDepositValue)
 		def theActualBalanceValue = doTheDeposit
@@ -13,20 +16,7 @@ class BankAccountSpec extends Specification {
 		where:
 		initialBalance | theDepositValue | theExpectedBalanceValue
 		0              | 1000            | 1000
-	}
-
-	def "500 balance becomes 1000 after a deposit of 500"() {
-		given:
-		def initialBalance = 500
-		def theDepositValue = 500
-		def theExpectedBalanceValue = 1000
-
-		when:
-		def doTheDeposit = doTheDeposit(initialBalance, theDepositValue)
-		def theActualBalanceValue = doTheDeposit
-
-		then:
-		theExpectedBalanceValue == theActualBalanceValue
+		500            | 500             | 1000
 	}
 
 	def "-100 balance becomes 1000 after a deposit of 1100"() {
