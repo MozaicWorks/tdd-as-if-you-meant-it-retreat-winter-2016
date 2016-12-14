@@ -18,6 +18,7 @@ class BankAccountSpec extends Specification {
 		0              | 1000            | 1000
 		500            | 500             | 1000
 		-100           | 1100            | 1000
+		0              | 100             | 100
 	}
 
 	private doTheDeposit(int initialBalance, int theDepositValue) {
