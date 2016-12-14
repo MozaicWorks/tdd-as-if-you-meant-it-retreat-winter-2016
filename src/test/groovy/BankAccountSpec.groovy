@@ -7,8 +7,7 @@ class BankAccountSpec extends Specification {
 	@Unroll
 	def "#initialBalance balance becomes #theExpectedBalanceValue after a deposit of #theDepositValue"() {
 		when:
-		def doTheDeposit = doTheDeposit(initialBalance, theDepositValue)
-		def theActualBalanceValue = doTheDeposit
+		def theActualBalanceValue = doTheDeposit(initialBalance, theDepositValue)
 
 		then:
 		theExpectedBalanceValue == theActualBalanceValue
