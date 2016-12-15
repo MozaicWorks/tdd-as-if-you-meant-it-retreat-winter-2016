@@ -29,7 +29,6 @@ class BankAccountSpec extends Specification {
 		def theExpectedFormattedBalanceValueInEuros = theExpectedBalanceValue.toString() + currency
 		def theInitialBalance = 10.0
 		def theDepositValue = 90.0
-		def doTheDeposit = theInitialBalance + theDepositValue
 		def theActualBalanceValue = doTheDeposit(theInitialBalance, theDepositValue)
 
 		when:
@@ -39,7 +38,7 @@ class BankAccountSpec extends Specification {
 		theExpectedFormattedBalanceValueInEuros == theActualFormattedBalanceValueInEuros
 	}
 
-	private doTheDeposit(initialBalance, theDepositValue) {
+	private def doTheDeposit(initialBalance, theDepositValue) {
 		return initialBalance + theDepositValue
 	}
 }
