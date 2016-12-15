@@ -25,12 +25,12 @@ class BankAccountSpec extends Specification {
 	def "100.0 euros balance becomes 1000.0 euros after a deposit of 900.0 euros"() {
 		given:
 		def currency = " euros"
-		def theExpectedBalanceValue = 1000.0
+		def theExpectedBalanceValue = 100.0
 		def theExpectedFormattedBalanceValueInEuros = theExpectedBalanceValue.toString() + currency
-		def theInitialBalance = 100.0
-		def theDepositValue = 900.0
+		def theInitialBalance = 10.0
+		def theDepositValue = 90.0
 		def doTheDeposit = theInitialBalance + theDepositValue
-		def theActualBalanceValue = doTheDeposit
+		def theActualBalanceValue = doTheDeposit(theInitialBalance, theDepositValue)
 
 		when:
 		def theActualFormattedBalanceValueInEuros = theActualBalanceValue.toString() + currency
